@@ -1,0 +1,77 @@
+<div style="margin-top: 30px;">
+  <h4>
+    <p>Calcula lista números</p>
+  </h4>
+  <h6> 
+    <p>Olá! 
+      <br>Bem-vindo a aplicação de calculo de lista. Para calcular sua lista é muito simples, digite um número e clique em adicionar!
+      <br>Adicione quantos número quiser e em sequida clique em Calcular!
+    </p>
+  </h6> 
+</div>
+
+<div style="margin-top: 30px;" class="form-inline waves-light">
+  <div class="md-form mt-0 w-75">
+    <input id="numeroModel" type="number" pattern="[0-9]{6}" min="0" step="1" style="width: 25%;" class="form-control mr-sm-2" 
+    [(ngModel)]="numeroModel" placeholder="Digite um número"/>
+  
+    <button class="btn btn-primary m-1" (click)="onClickAdicionar(numeroModel)">Adicionar</button>
+    <button  style="margin-left: 10px" *ngIf="listaNumeros.length > 0" class="btn btn-outline-primary" (click)="onClickCalcular()">Calcular</button>
+  </div> 
+</div>
+<div style="margin-top: 20px;" class="lista" *ngIf="listaNumeros.length > 0">
+  <tr>
+    <td id="content" *ngFor="let item of listaNumeros">
+      <div>
+         {{item}} | &nbsp;
+      </div>
+    </td>
+  </tr>
+</div>
+<div *ngIf="numeros">
+  <div style="margin-top: 50px; border: double; width: 25%;" class="lista">
+    <h6> 
+      <p>Resultado:</p>
+    </h6> 
+    <tr id="content">
+      <td>Soma total:&nbsp;</td>
+      <td>
+        <div>
+          {{numeros.somaTotalLista}}
+        </div>
+      </td>
+    </tr>
+    <tr id="content">
+      <td>Soma pares:&nbsp;</td>
+      <td>
+        <div>
+          {{numeros.somaParesLista}}
+        </div>
+      </td>
+    </tr>
+    <tr id="content">
+      <td>Maior número:&nbsp;</td>
+      <td>
+        <div>
+          {{numeros.maiorNumeroLista}}
+        </div>
+      </td>
+    </tr>
+    <tr id="content">
+      <td>Menor número:&nbsp;</td>
+      <td>
+        <div>
+          {{numeros.menorNumeroLista}}
+        </div>
+      </td>
+    </tr>
+    <tr id="content">
+      <td>Média:&nbsp;</td>
+      <td>
+        <div>
+          {{numeros.mediaLista}}
+        </div>
+      </td>
+    </tr>
+</div>
+</div>
